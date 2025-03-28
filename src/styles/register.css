@@ -1,0 +1,101 @@
+.register {
+    background: linear-gradient(to right, #0a0a0a, #101820);
+    padding: 50px 20px;
+    color: white;
+}
+
+.register-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+.register-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.register-info {
+    flex: 1;
+    padding: 40px;
+    background-color: #002A3A;
+    color: white;
+}
+
+.register-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.register-info p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.register-form {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #004F6E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #002A3A;
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+    }
+
+    .register-info, .register-form {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+.message{
+    color: rgb(39, 203, 39);
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}

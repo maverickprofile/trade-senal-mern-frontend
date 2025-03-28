@@ -1,0 +1,116 @@
+.course-section {
+    background: linear-gradient(#000000, #000000, #041A26);
+}
+
+.courses-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.section-title-one {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section-title-two {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.section-description {
+    font-size: 25px;
+    color: rgb(253, 255, 253);
+    margin-bottom: 40px;
+}
+
+.section-title-one span,
+.section-title-two span {
+    background: -webkit-linear-gradient(#01232f, #0da2d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.course-card {
+    background: #0A2A42; /* Solid dark blue background */
+    padding: 15px; /* Reduced padding for a compact look */
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.course-card:hover {
+    transform: scale(1.05); /* Hover effect to match the image */
+}
+
+.course-card h3 {
+    font-size: 40px; /* Matches 1.2rem */
+    color: #4DC3FF; /* Updated to match the image */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.course-card p {
+    font-size: 15px; /* Matches 0.9rem */
+    color: #ffffff; /* Light gray to match the image */
+    margin-bottom: 15px;
+}
+
+.swiper {
+    width: 80%;
+    padding-bottom: 50px;
+    margin: 0 auto; /* Ensure centering */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video video {
+    width: 100%;
+    border-radius: 10px;
+    /* aspect-ratio: 16 / 9; Ensure consistent aspect ratio */
+}
+
+.enroll-btn {
+    background: #4DC3FF; /* Light blue to match the image */
+    color: #042B4D; /* Dark text to match the image */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.enroll-btn:hover {
+    background: #3AAFFF; /* Slightly darker blue on hover */
+}
+
+@media (max-width: 768px) {
+    .swiper {
+        width: 95%;
+    }
+
+    .course-card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .section-title-two {
+        font-size: 40px;
+    }
+
+    .section-description {
+        font-size: 20px;
+    }
+}

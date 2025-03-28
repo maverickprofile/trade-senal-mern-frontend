@@ -1,0 +1,86 @@
+/* Custom Bootstrap overrides */
+.bg-dark {
+    background: linear-gradient(#000000, #000000, #041A26) !important;
+  }
+  
+  .text-primary {
+    color: #4DC3FF !important;
+  }
+  
+  .text-secondary {
+    color: #B0C4DE !important;
+  }
+  
+  .btn-primary {
+    background-color: #4DC3FF !important;
+    border-color: #4DC3FF !important;
+    color: #042B4D !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3AAFFF !important;
+    border-color: #3AAFFF !important;
+  }
+  
+  /* Newsletter Section */
+  .subscription.bg-dark {
+    background: none !important;
+    padding: 0 !important; /* Remove padding from the section */
+    margin: 0 !important; /* Remove margin from the section */
+  }
+  
+  .subscription .subscription-wrapper {
+    border-radius: 0; /* Remove the custom border-radius */
+    padding: 70px 50px; /* Keep internal padding for content */
+    z-index: 1;
+    width: 100%;
+    background: linear-gradient(80deg, #0A2A42 0%, #4DC3FF 100%); /* Your palette */
+    box-shadow: none !important; /* Remove shadow since it's full-width */
+    margin: 0 !important; /* Remove margin */
+  }
+  
+  /* Remove the tilt effects */
+  .subscription .subscription-content {
+    transform: none; /* Remove skew */
+  }
+  
+  .subscription .form-control {
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 45px;
+    border: 1px solid #ebebeb !important;
+    color: #fff;
+  }
+  
+  .subscription .form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  .subscription .btn {
+    font-size: 16px;
+    color: #ebebeb;
+    font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
+    padding: 18px 45px;
+    border-radius: 45px;
+    font-weight: 500;
+    border: 1px solid;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+  }
+  
+  .subscription .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 102%;
+    height: 100%;
+    background-color: #0078b4;
+    z-index: -1;
+    transition: ease 0.3s;
+  }
