@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/register.css";
 
+const API_URL = "https://trade-senal-mern-backend.onrender.com"; // Replace with env variable if needed
+
 const Register = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -13,35 +15,36 @@ const Register = () => {
   });
 
   const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState(""); // For success/error messages
+  const [message, setMessage] = useState("");
 
+  // Handle Input Change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value.trim() });
   };
 
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setMessage("");
-  
+
     // Ensure all fields are filled before submitting
-    for (const key in formData) {
-      if (formData[key].trim() === "") {
-        setMessage("⚠️ Please fill in all required fields.");
-        setSubmitting(false);
-        return;
-      }
+    if (Object.values(formData).some((value) => value === "")) {
+      setMessage("⚠️ Please fill in all required fields.");
+      setSubmitting(false);
+      return;
     }
-  
+
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/register",
-        JSON.stringify(formData), // Explicitly stringify the JSON data
+        `${API_URL}/api/register`,
+        formData, // No need for JSON.stringify
         {
           headers: { "Content-Type": "application/json" },
+          withCredentials: true, // Important for handling authentication (if needed)
         }
       );
-  
+
       if (response.data.success) {
         setMessage("✅ Registration successful!");
         setFormData({
@@ -53,16 +56,15 @@ const Register = () => {
           contactTime: "",
         });
       } else {
-        setMessage("❌ Error: " + response.data.message);
+        setMessage(`❌ Error: ${response.data.message}`);
       }
     } catch (error) {
       console.error("Registration Error:", error);
-      setMessage("⚠️ Something went wrong! Please try again.");
+      setMessage(error.response?.data?.message || "⚠️ Something went wrong! Please try again.");
     }
-  
+
     setSubmitting(false);
   };
-  
 
   return (
     <div className="register">
@@ -76,19 +78,47 @@ const Register = () => {
             <form id="registrationForm" onSubmit={handleSubmit}>
               <div className="input-group">
                 <label>First Name *</label>
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>Last Name *</label>
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>Mobile Number *</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>Occupation *</label>
-                <input type="text" name="occupation" value={formData.occupation} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="occupation"
+                  value={formData.occupation}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                />
               </div>
               <div className="input-group">
                 <label>Do you have trading experience? *</label>
@@ -100,7 +130,14 @@ const Register = () => {
               </div>
               <div className="input-group">
                 <label>Preferred Contact Time *</label>
-                <input type="text" name="contactTime" value={formData.contactTime} onChange={handleChange} required />
+                <input
+                  type="text"
+                  name="contactTime"
+                  value={formData.contactTime}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  required
+                />
               </div>
 
               {/* Success/Error Message */}
